@@ -152,6 +152,10 @@ sub get_slave_lag
   my ($self, %args)= @_;
   _logger(DEBUG, "start get_slave_lag");
   _logger(DEBUG, "finish get_slave_lag");
+
+  ### get_slave_lag hook should return CODEref.
+  ###   https://github.com/yoku0825/pt-osc-plugin/issues/1
+  return sub { return 0 };
 }
 
 
